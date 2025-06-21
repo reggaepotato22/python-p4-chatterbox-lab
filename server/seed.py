@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
+
 from random import choice as rc
 
 from faker import Faker
 
 from app import app
-from models import db, Message 
+from models import db, Message
 
 fake = Faker()
 
@@ -13,13 +15,13 @@ if "Duane" not in usernames:
 
 def make_messages():
 
-    Message.query.delete() 
+    Message.query.delete()
     
     messages = []
 
     for i in range(20):
         message = Message(
-            content=fake.sentence(), 
+            content=fake.sentence(),
             username=rc(usernames),
         )
         messages.append(message)
