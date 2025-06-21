@@ -12,3 +12,8 @@ class Message(db.Model, SerializerMixin):
     __tablename__ = 'messages'
 
     id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String, nullable=False)
+    username = db.Column(db.String, nullable=False)
+
+    def __repr__(self):
+        return f'<Message {self.id}: {self.username} - {self.content}>'
